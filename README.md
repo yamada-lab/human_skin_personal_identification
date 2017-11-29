@@ -2,7 +2,7 @@
 
 
 ## overview
-An R-script is the demonstration of personal identification using human skin microbiome that as described in the article 'Environmental bacteria contribute personal identification of human skin microbiome'
+An R-script is covering the different steps of personal identification using human skin microbiome that as described in the article 'Environmental bacteria contribute personal identification of human skin microbiome'
 
 
 ## Requirement
@@ -21,12 +21,12 @@ If there is the query sample in the reference samples, this function automatical
 	A2	100	0	...	220	230
 	:	:	:		:	:
 	C2	200	220	...	0	90
-	C3	230	230	...	90	0	
+	C3	230	230	...	90	0
 
 "sample_individual" is relational table of samples and individuals.
 
-	sample	individual 
-	A1 	A 
+	sample	individual
+	A1 	A
 	A2	A
 	A3	A
 	B1	B
@@ -34,11 +34,10 @@ If there is the query sample in the reference samples, this function automatical
 	B3	B
 	C1	C
 	C2	C
-	C3	C 
+	C3	C
 
-The function return two kind of argument as list class.
-
-$matrix show how many each individual's samples are classified to each individuals. Row of this matrix is query, column is reference.
+This function returns two kinds of results as a list class.
+The $matrix shows how many samples of each individual are classified for each individual. The rows of this matrix are the number of query samples and the columns are the number of reference samples.
 
 	$matrix
 	  A B C
@@ -46,7 +45,7 @@ $matrix show how many each individual's samples are classified to each individua
 	B 0 1 0
 	C 0 0 1
 
-$score show accuracy of personal identification which is TP / (TP + FN)
+The $score show accuracy of personal identification which is TP / (TP + FN)
 
 	$score
 	[1] 1
@@ -57,8 +56,8 @@ $ git clone git@github.com:HikaruWatanabe/human_skin_personal_identification.git
 
 
 ## DEMO
-If you want to show demonstration of our Rscript, please install Rstdio and perform our Rscript (line 1 to 84).
- 
+If you want to show demonstration of our Rscript, please install Rstudio and perform our R Script (line 1 to 84).
+
 
 ## Author
 created by Hikaru Watanabe at Tokyo Institute of Technology
@@ -94,10 +93,3 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-
-
-
-
-
-

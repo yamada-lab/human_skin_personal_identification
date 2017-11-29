@@ -1,11 +1,12 @@
-#################################################################
-## created by Hikaru Watanabe at Tokyo Institute of Technology ##
-## 2017-11-24                                                  ##
-## email<watanabe.h.ap@m.titech.ac.jp>                         ##
-#################################################################
+###################################################################
+## created by Hikaru Watanabe at Tokyo Institute of Technology   ##
+## 2017-11-24                                                    ##
+## email<watanabe.h.ap@m.titech.ac.jp>                           ##
+## R version 3.3.2 (2016-10-31)                                  ##
+###################################################################
 
 # setting directory
-setwd("/Users/kevalkyrie777/Desktop/Projects/skin_microbiome/GitHub/")
+setwd("human_skin_personal_identification")
 
 # function of leave one out method (removing same sample with query from reference samples)
 personal_identification <- function(d.dist.m.query_reference, sample_individual){
@@ -63,17 +64,29 @@ personal_identification <- function(d.dist.m.query_reference, sample_individual)
   return(results)
 }
 
-# performing to test in our data
-data   <- read.table("matrix/test_data.otu",
-                     sep="\t",header=T,row.names=1)
-sample_individual <- read.table("matrix/test_data.list",
-                                sep="\t",header=T)
-d.rate <- prop.table(as.matrix(data),2)
-d.dist                   <- dist(t(d.rate), method="canberra")
-d.dist.m.query_reference <- as.matrix(d.dist)
-personal_identification(d.dist.m.query_reference, sample_individual)
+# Demonstration of performing to personal_identification.
+data   <- read.table("matrix/test_data.otu", sep="\t",header=T,row.names=1) #reading OTU table
+sample_individual <- read.table("matrix/test_data.list", sep="\t",header=T) #reading sample and individual table
+d.rate <- prop.table(as.matrix(data),2) #calcurating relative abundance of OTU
+d.dist                   <- dist(t(d.rate), method="canberra") # calcurating distance
+d.dist.m.query_reference <- as.matrix(d.dist) # convert to matrix class
+personal_identification(d.dist.m.query_reference, sample_individual) # performing personal_identification methods
 
-# personal identification using our data
+# if you want to select reference and query.
+data   <- read.table("matrix/test_data.otu", sep="\t",header=T,row.names=1) #reading OTU table
+sample_individual <- read.table("matrix/test_data.list", sep="\t",header=T) #reading sample and individual table
+d.rate <- prop.table(as.matrix(data),2) #calcurating relative abundance of OTU
+d.dist                   <- dist(t(d.rate), method="canberra") # calcurating distance
+d.dist.m.query_reference <- as.matrix(d.dist) # convert to matrix class
+query     <- c("A1", "B1", "C1") # selection of query samples
+reference <- c("A2", "A3", "B2", "B3", "C2", "C3") # selection of reference samples
+d.dist.m.query_reference2 <- d.dist.m.query_reference[query, reference] # making distance matrix of query and reference samples 
+personal_identification(d.dist.m.query_reference2, sample_individual) # performing personal_identification methods
+
+##########################################################################################
+##  From here, we demonstrate personal identification to our original data              ## 
+## 'Environmental bacteria contribute personal identification of human skin microbiome' ##
+##########################################################################################
 data   <- read.table("matrix/skin_16S_ourdata.otutable",
                     sep="\t",header=T,row.names=1)
 d.rate <- prop.table(as.matrix(data),2)

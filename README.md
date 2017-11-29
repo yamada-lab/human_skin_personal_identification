@@ -40,16 +40,16 @@ The function return two kind of argument as list class.
 
 *$matrix show how many each individual's samples are classified to each individuals. Row of this matrix is query, column is reference.
 
-$matrix
-  A B C
-A 1 0 0
-B 0 1 0
-C 0 0 1
+	$matrix
+	  A B C
+	A 1 0 0
+	B 0 1 0
+	C 0 0 1
 
 *$score show accuracy of personal identification which is TP / (TP + FN)
 
-$score
-[1] 1
+	$score
+	[1] 1
 
 
 ## Installation

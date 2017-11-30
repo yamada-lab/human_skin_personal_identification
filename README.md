@@ -52,7 +52,7 @@ The $score show accuracy of personal identification which is TP / (TP + FN)
 
 
 ## Installation
-$ git clone git@github.com:HikaruWatanabe/human_skin_personal_identification.git
+   git clone git@github.com:HikaruWatanabe/human_skin_personal_identification.git
 
 
 ## DEMO

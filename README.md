@@ -56,7 +56,7 @@ The $score show accuracy of personal identification which is TP / (TP + FN)
 
 
 ## DEMO
-If you want to show demonstration of our Rscript, please install Rstudio and perform our R Script (line 1 to 84).
+If you want to show demonstration of our Rscript, please install Rstudio and perform our R Script (line 1 to 70).
 
 
 ## Author
